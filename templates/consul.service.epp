@@ -1,0 +1,13 @@
+<%- | String $bind_address | -%>
+[Unit]
+Description=Consul Server-Agent
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/bin/bash -c '/usr/local/bin/consul agent -config-dir /etc/consul -bind=<%= $bind_address %>'
+TimeoutStartSec=0
+
+
+[Install]
+WantedBy=multi-user.target
