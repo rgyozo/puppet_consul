@@ -1,4 +1,3 @@
-datacenter_name: teszt
 bind_address: 10.10.100.11
 join_ips:
  - '10.10.100.10'
