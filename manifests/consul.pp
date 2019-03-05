@@ -8,7 +8,7 @@ class systemd::daemon_reload {
 
 
 file { '/etc/systemd/system/consul.service':
-  content => epp('/etc/puppetlabs/code/environments/production/templates/consul.service.epp',
+  content => epp('/etc/puppetlabs/code/environments/puppet_consul/templates/consul.service.epp',
     {
 	bind_address 	=> lookup('bind_address'),
     }
@@ -17,7 +17,7 @@ file { '/etc/systemd/system/consul.service':
 }
 
 file { '/etc/consul/config.json':
-  content => epp('/etc/puppetlabs/code/environments/production/templates/config.json.epp',
+  content => epp('/etc/puppetlabs/code/environments/puppet_consul/templates/config.json.epp',
    {
       datacenter_name   => lookup('datacenter_name'),
       join_ips 		=> lookup('join_ips'),

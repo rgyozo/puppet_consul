@@ -12,4 +12,4 @@ chown -R consul:consul /etc/consul/
 mkdir /var/consul
 chown -R consul:consul /var/consul
 cd /etc/puppetlabs/code/environments/ && git clone https://github.com/rgyozo/puppet_consul
-sudo /opt/puppetlabs/bin/puppet resource cron puppet-apply ensure=present user=root minute=1 command='cd /etc/puppetlabs/code/environments/ && git pull https://github.com/rgyozo/puppet_consul && /opt/puppetlabs/bin/puppet apply manifestsi --environment=puppet_consul/'
+sudo /opt/puppetlabs/bin/puppet resource cron puppet-apply ensure=present user=root minute=1 command='cd /etc/puppetlabs/code/environments/puppet_consul && git pull && /opt/puppetlabs/bin/puppet apply /etc/puppetlabs/code/environments/puppet_consul/manifests/consul.pp --environment=puppet_consul/'
